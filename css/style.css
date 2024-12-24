@@ -8,9 +8,7 @@ body {
     padding: 0;
 }
 
-
-
-/* Header Menu */
+/* Menu */
 #menu {
     background-color: #87CEEB;  /* Bleu ciel */
     position: fixed;
@@ -22,29 +20,31 @@ body {
     border-bottom-right-radius: 10px;
 }
 
+/* Structure du menu */
 #menu nav {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centre le contenu horizontalement */
     align-items: center;
     height: 70px;
 }
 
-/* Menu List */
+/* Liste des éléments du menu */
 #menu ul {
     display: flex;
-    gap: 20px;
+    justify-content: center; /* Centre les liens horizontalement */
+    gap: 30px; /* Espacement entre les éléments */
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-/* Menu Items */
+/* Liens du menu */
 #menu ul li {
     font-size: 18px;
     font-weight: bold;
 }
 
-/* Links */
+/* Style des liens */
 #menu ul li a {
     text-decoration: none;
     color: white;
@@ -53,34 +53,57 @@ body {
     transition: all 0.3s ease; /* Animation fluide */
 }
 
-/* Hover Effects */
+/* Effets au survol des liens */
 #menu ul li a:hover {
     background-color: #32b2e4; /* Vert plus foncé */
     color: #f4f4f4; /* Gris clair */
     transform: scale(1.1); /* Zoom subtil */
 }
 
-/* Active Link Indicator (Optional) */
+/* Lien actif */
 #menu ul li a.active {
     background-color: #367c39; /* Couleur de surbrillance pour le lien actif */
     color: white;
 }
 
-/* Responsive Design */
+/* Responsive Design - Mobile */
 @media (max-width: 768px) {
+    /* Menu vertical */
     #menu ul {
         flex-direction: column; /* Menu vertical sur petits écrans */
         gap: 10px;
+        text-align: center; /* Centrer les éléments dans la colonne */
     }
-    #menu {
-        height: auto;
+    
+    #menu nav {
+        height: auto; /* Ajuster la hauteur pour un menu mobile */
         padding: 10px 0;
     }
 }
 
 
+.navbar-nav .nav-item {
+    font-size: 18px;
+    font-weight: bold;
+}
 
+.nav-link {
+    color: white !important;  /* S'assurer que les liens restent blancs */
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease; /* Animation fluide */
+}
 
+.nav-link:hover {
+    background-color: #32b2e4; /* Vert plus foncé */
+    color: #f4f4f4; /* Gris clair */
+    transform: scale(1.1); /* Zoom subtil */
+}
+
+.nav-link.active {
+    background-color: #367c39; /* Couleur de surbrillance pour le lien actif */
+    color: white;
+}
 
 /* Sections */
 main section {
@@ -89,57 +112,83 @@ main section {
     min-height: 200px;
 }
 
-section h2 {
-    font-size: 28px;
-    color: #333;
-}
-
 /* Section spécifique */
-#profil, #competences, #formation, #passion, #contact, #projet{
+#profil, #competences, #formation, #passion, #contact, #projet {
     background-color: #f4f4f4;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-#profil{
+#profil {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr; /* Par défaut, une seule colonne (mobile/tablette) */
     grid-template-rows: 1em, 1em;
 }
 
-#profil h2{
+#profil h2 {
     grid-column: 1;
     grid-row: 1;
 }
 
-#profil p{
+#profil p {
     grid-column: 1;
     grid-row: 2;
     text-align: justify;
 }
 
-#profil img{
-    grid-column: 2;
-    grid-row: span 2;
-    width: 200px; /* Largeur du portrait, ajuste selon tes besoins */
-    height: auto; /* Conserve les proportions de l'image */
-    border-radius: 15px; /* Petits arrondis pour les coins */
-    margin: 10px auto; /* Centrer et ajouter de l'espace autour si nécessaire */
-    display: block; /* Centre l'image si elle est dans un conteneur */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optionnel : ajoute une ombre élégante */
-    object-fit: cover; /* Si l'image dépasse, elle est recadrée */
+#profil img {
+    grid-column: 1; /* Par défaut, l'image sera en dessous du texte */
+    grid-row: 3;
+    width: 60%; /* Taille de l'image par défaut */
+    height: auto;
+    margin: 10px auto;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Ajout de quelques détails */
-section p {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.6;
+/* Sur écran plus large (ordinateur) */
+@media (min-width: 1024px) {
+    #profil {
+        grid-template-columns: 1fr 1fr; /* Deux colonnes (texte à gauche, image à droite) */
+    }
+
+    #profil img{
+        grid-column: 2;
+        grid-row: span 2;
+        width: 200px; /* Largeur du portrait, ajuste selon tes besoins */
+        height: auto; /* Conserve les proportions de l'image */
+        border-radius: 15px; /* Petits arrondis pour les coins */
+        margin: 10px auto; /* Centrer et ajouter de l'espace autour si nécessaire */
+        display: block; /* Centre l'image si elle est dans un conteneur */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optionnel : ajoute une ombre élégante */
+        object-fit: cover; /* Si l'image dépasse, elle est recadrée */
+    }
 }
+
+main h2{
+    font-weight: bold;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 15px;
+}
+
+
 
 /* Espacement pour éviter que le contenu ne soit caché par le menu fixe */
 body {
     padding-top: 80px; /* Compense la hauteur du menu fixe + un peu d'espace */
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+    /* Menu vertical sur petits écrans */
+    .navbar-nav {
+        text-align: center; /* Centrer les éléments du menu sur mobile */
+    }
+    .navbar-toggler {
+        border-color: #fff; /* Assurez-vous que l'icône hamburger a une couleur appropriée */
+    }
 }
 
 /* Projets */
@@ -193,7 +242,6 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-
 .passions-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colonnes adaptatives */
@@ -222,14 +270,11 @@ body {
     line-height: 1.4;
 }
 
-
-
-
-
+/* Formation */
 .formation-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1em, 1em;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes par défaut */
+    gap: 20px; /* Espacement entre les blocs */
     justify-items: center;
 }
 
@@ -239,7 +284,30 @@ body {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    max-width: 500px; /* Largeur max pour chaque item */
+    max-width: 500px;
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+    .formation-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        gap: 15px; /* Réduire l'espacement pour mobile */
+    }
+}
+
+
+/* Spécifique pour les h2 dans une section */
+main section h2 {
+    color: #333 !important;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+/* Spécifique pour les h2 dans une section */
+main section h3 {
+    color: #333 !important;
+    font-weight: bold;
+    
 }
 
 
@@ -248,8 +316,6 @@ body {
     color: #333;
     margin-bottom: 10px;
 }
-
-
 
 #competences {
     background-color: #f4f4f4;
@@ -274,7 +340,6 @@ body {
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
-
 .competence-category h3 {
     font-size: 18px;
     color: #333;
@@ -292,9 +357,7 @@ body {
     margin-bottom: 8px;
 }
 
-
-
-
+/* Section Contact */
 #contact {
     background-color: #f4f4f4;
     border-radius: 8px;
@@ -305,7 +368,7 @@ body {
 
 #contact h2 {
     font-size: 28px;
-    /*text-align: center;*/
+    /*text-align: center;*/ 
     margin-bottom: 20px;
     color: #333;
 }
