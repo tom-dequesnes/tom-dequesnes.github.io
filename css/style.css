@@ -204,7 +204,7 @@ body {
     margin-top: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .project-grid {
         grid-template-columns: repeat(1, 1fr); /* 1 colonne sur mobile */
     }
