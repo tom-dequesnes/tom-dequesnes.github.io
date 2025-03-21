@@ -199,7 +199,7 @@ body {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colonnes adaptatives */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Colonnes adaptatives */
     gap: 20px; /* Espacement entre les projets */
     margin-top: 20px;
 }
