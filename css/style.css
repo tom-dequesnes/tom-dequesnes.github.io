@@ -204,6 +204,12 @@ body {
     margin-top: 20px;
 }
 
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 colonne sur mobile */
+    }
+}
+
 .project-item {
     background-color: #ffffff;
     border-radius: 8px;
