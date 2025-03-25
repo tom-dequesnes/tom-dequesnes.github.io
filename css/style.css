@@ -382,7 +382,7 @@ main section h3 {
 .contact-links {
     display: flex;
     justify-content: center;
-    gap: 30px; /* Espace entre les icônes */
+    gap: 30px; 
     margin-bottom: 20px;
 }
 
@@ -394,24 +394,72 @@ main section h3 {
 }
 
 .contact-icon img {
-    height: 30px;  /* Ajustez la taille de l'icône */
-    width: auto;   /* Conserver le ratio d'aspect pour les logos rectangulaires */
+    height: 30px;  
+    width: auto;   
 }
 
 .contact-icon:hover {
-    transform: scale(1.1); /* Agrandir légèrement l'icône au survol */
+    transform: scale(1.1); 
 }
 
 .email-link {
-    display: block; /* Assurez-vous que c'est un bloc pour pouvoir le centrer */
-    margin-top: 20px; /* Espacement au-dessus de l'adresse e-mail */
-    font-size: 16px; /* Taille du texte */
-    color: #555; /* Harmoniser la couleur avec le reste du site */
-    text-decoration: none; /* Retirer le soulignement */
+    display: block; 
+    margin-top: 20px; 
+    font-size: 16px;
+    color: #555;
+    text-decoration: none; 
     transition: color 0.3s ease;
-    text-align: center; /* Centrer le texte */
+    text-align: center; 
 }
 
 .email-link:hover {
-    color: #1E90FF; /* Couleur au survol */
+    color: #1E90FF;
 }
+
+
+/* Modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 700px;
+    position: relative;
+    z-index: 101;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    overflow: auto;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    color: black;
+  }
+  
+  .project-item {
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .project-item:hover {
+    transform: translateY(-5px);
+  }
+
+  
