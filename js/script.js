@@ -1,32 +1,54 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Gestion des clics sur les projets
+    const modal = document.getElementById('projectModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
+    const closeBtn = document.querySelector('.close');
+
+    // 1. Gestion des clics sur les réalisations/projets académiques
     document.querySelectorAll('.project-item').forEach(project => {
-      project.addEventListener('click', function(e) {
-        // On ne fait rien si on clique sur un lien
-        if (e.target.tagName === 'A') return;
-        
-        const title = this.querySelector('h3').textContent;
-        const fullContent = this.querySelector('.full-description').innerHTML;
-        
-        // Affiche la modal
-        document.getElementById('modalTitle').textContent = title;
-        document.getElementById('modalContent').innerHTML = fullContent;
-        document.getElementById('projectModal').style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Empêche le scroll de la page
-      });
+        project.addEventListener('click', function(e) {
+            // Empêcher l'ouverture si on clique sur le lien GitHub
+            if (e.target.tagName === 'A') return;
+            
+            const title = this.querySelector('h3').textContent;
+            const fullContent = this.querySelector('.full-description').innerHTML;
+            
+            openModal(title, fullContent);
+        });
+    });
+
+    // 2. Gestion de l'ouverture des détails de l'alternance (Consigne 2)
+    const openAltBtn = document.getElementById('openAlternanceModal');
+    if (openAltBtn) {
+        openAltBtn.addEventListener('click', function() {
+            const title = "Focus Alternance — E-Mothep";
+            const fullContent = document.getElementById('alternanceDetailsContent').innerHTML;
+            openModal(title, fullContent);
+        });
+    }
+
+    // Fonction centralisée d'ouverture de la modale
+    function openModal(title, content) {
+        modalTitle.textContent = title;
+        modalContent.innerHTML = content;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Bloque le scroll arrière
+    }
+  
+    // Fermeture via la croix
+    closeBtn.addEventListener('click', function() {
+        closeModal();
     });
   
-    // Fermer la modal
-    document.querySelector('.close').addEventListener('click', function() {
-      document.getElementById('projectModal').style.display = 'none';
-      document.body.style.overflow = 'auto'; // Rétablit le scroll
-    });
-  
-    // Fermer en cliquant en dehors
+    // Fermeture via clic en dehors de la boîte
     window.addEventListener('click', function(e) {
-      if (e.target === document.getElementById('projectModal')) {
-        document.getElementById('projectModal').style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
+        if (e.target === modal) {
+            closeModal();
+        }
     });
-  });
+
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Libère le scroll
+    }
+});
